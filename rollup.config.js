@@ -4,7 +4,6 @@ import commonjs from '@rollup/plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import sveltePreprocess from 'svelte-preprocess'
-// import { preprocess } from './svelte.config'
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -14,6 +13,7 @@ const preprocess = sveltePreprocess({
   pug: true,
   postcss: {
       plugins: [
+        require('postcss-combine-media-query'),
         require('autoprefixer')({
           grid: 'autoplace',
           overrideBrowserslist: ['> 1%', 'last 2 versions', 'ie >= 11'],
