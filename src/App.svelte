@@ -1,4 +1,5 @@
 <script>
+  import Pug from './Pug.svelte'
   export let userName
   export let age
 
@@ -11,23 +12,13 @@
   {#if userName}
     <h2>Hello {userName} you are {age} years old</h2>
   {:else}
-    <h2>Hello World</h2>
+    <h2>Hello nerd</h2>
   {/if}
 
   <aside>
     <p>see you on the other side</p>
+    <Pug />
   </aside>
-
-  <!-- pug still has some vscode issues but compiles fine -->
-  <!-- prettier-ignore  
-    <template lang="pug">
-    +if ("name")
-      h1 Hello {name}
-      +else 
-        h1 Hello enter name
-    p This is a test of the pug system
-  </template> 
-  -->
 </main>
 
 <style lang="scss">
@@ -45,10 +36,10 @@
     }
 
     @media (min-width: 640px) {
+      max-width: none;
       h2 {
         color: greenyellow;
       }
-      max-width: none;
     }
   }
 
