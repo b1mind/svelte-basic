@@ -8,24 +8,21 @@ import sveltePreprocess from 'svelte-preprocess'
 const production = !process.env.ROLLUP_WATCH;
 
 const preprocess = sveltePreprocess({
-  javascript: true,
-  scss: true,
-  pug: true,
   postcss: {
-      plugins: [
-        require('postcss-combine-media-query'),
-        require('autoprefixer')({
-          grid: 'autoplace',
-          overrideBrowserslist: ['> 1%', 'last 2 versions', 'ie >= 11'],
-        }),
-      ],
-    },
-  })
+    plugins: [
+      require('postcss-combine-media-query'),
+      require('autoprefixer')({
+        grid: 'autoplace',
+        overrideBrowserslist: ['> 1%', 'last 2 versions', 'ie >= 11'],
+      }),
+    ],
+  },
+})
 
 function serve() {
-	let server;
-	
-	function toExit() {
+let server;
+
+  function toExit() {
 		if (server) server.kill(0);
 	}
 
@@ -54,14 +51,14 @@ export default {
 	plugins: [
 		svelte({
 			// enable run-time checks when not in production
-			dev: !production,
+      dev: !production,
+      preprocess: preprocess,
 			// we'll extract any component CSS out into
       // a separate file - better for performance
-      preprocess: preprocess,
 			css: css => {
 				css.write('bundle.css');
 			}
-		}),
+    }),
 
 		// If you have external dependencies installed from
 		// npm, you'll most likely need these plugins. In
