@@ -1,5 +1,8 @@
 Todo:
   ✔ connect remote to github @done(20-10-12 01:19)
-  ☐ create a scss global and inport
+  ✔ create a scss global and import @done(20-10-14 02:12)
   ☐ use my own default scss/css
   ☐ add my own favIcon
+
+FixMe:
+  ☐ global scss gives error about type/text

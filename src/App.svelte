@@ -4,41 +4,41 @@
   export let age
 
   let val = 420
+  let count = 0
 </script>
 
 <main>
   <h1>This is a {val} test smoke it</h1>
+  <button on:click={() => count++}>clickMe {count}</button>
 
   {#if userName}
     <h2>Hello {userName} you are {age} years old</h2>
   {:else}
-    <h2>Hello nerd</h2>
+    <h2>Hello Nerd</h2>
   {/if}
 
   <aside>
     <p>see you on the other side</p>
-    <Pug />
+    <Pug {count} />
   </aside>
 </main>
 
 <style lang="scss">
-  // todo add some style
-
   main {
+    max-width: 320px;
     margin: 0 auto;
     padding: 1em;
     text-align: center;
-    max-width: 240px;
 
     h2 {
-      color: skyblue;
+      color: var(--clr);
       font-weight: 700;
     }
 
     @media (min-width: 640px) {
       max-width: none;
       h2 {
-        color: greenyellow;
+        color: var(--clrAlt);
       }
     }
   }
