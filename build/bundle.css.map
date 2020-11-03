@@ -1,0 +1,14 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "App.svelte",
+    "Pug.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\n  import Pug from './Pug.svelte'\n  export let userName\n  export let age\n\n  let val = 420\n  let count = 0\n</script>\n\n<main>\n  <h1>This is a {val} test smoke it</h1>\n  <button on:click={() => count++}>clickMe {count}</button>\n\n  {#if userName}\n    <h2>Hello {userName} you are {age} years old</h2>\n  {:else}\n    <h2>Hello Nerd</h2>\n  {/if}\n\n  <aside>\n    <p>see you on the other side</p>\n    <Pug {count} />\n  </aside>\n</main>\n\n<style lang=\"scss\">main {\n  max-width: 320px;\n  margin: 0 auto;\n  padding: 1em;\n  text-align: center;\n}\nmain h2 {\n  color: var(--clr);\n  font-weight: 700;\n}\n\nh1 {\n  color: red;\n  text-transform: uppercase;\n  font-weight: 100;\n}\n\n@media (min-width: 640px) {\n  main {\n    max-width: none;\n  }\n  main h2 {\n    color: var(--clrAlt);\n  }\n  h1 {\n    color: white;\n    font-size: 4rem;\n  }\n}</style>\n",
+    "<script>\r\n  let yourName\r\n  export let count = 0\r\n</script>\r\n\r\n<!-- prettier-ignore -->\r\n<div class=\"greeting\"><slot></slot><p>This is a test of the pug system</p>{#if yourName}<h1>Hello {yourName} you clicked {count} {count <= 1 ? 'time' : 'times'}</h1>{:else} <h1>enter name</h1>{/if}<input type=\"text\" bind:value=\"{yourName}\"></div>\r\n\r\n<style lang=\"scss\">.greeting {\n  color: #d0d0d0;\n}\n.greeting h1 {\n  color: var(--clr);\n}</style>\r\n"
+  ],
+  "names": [],
+  "mappings": "AAyBmB,IAAI,8BAAC,CAAC,AACvB,SAAS,CAAE,KAAK,CAChB,MAAM,CAAE,CAAC,CAAC,IAAI,CACd,OAAO,CAAE,GAAG,CACZ,UAAU,CAAE,MAAM,AACpB,CAAC,AACD,mBAAI,CAAC,EAAE,eAAC,CAAC,AACP,KAAK,CAAE,IAAI,KAAK,CAAC,CACjB,WAAW,CAAE,GAAG,AAClB,CAAC,AAED,EAAE,8BAAC,CAAC,AACF,KAAK,CAAE,GAAG,CACV,cAAc,CAAE,SAAS,CACzB,WAAW,CAAE,GAAG,AAClB,CAAC,AAED,MAAM,AAAC,YAAY,KAAK,CAAC,AAAC,CAAC,AACzB,IAAI,8BAAC,CAAC,AACJ,SAAS,CAAE,IAAI,AACjB,CAAC,AACD,mBAAI,CAAC,EAAE,eAAC,CAAC,AACP,KAAK,CAAE,IAAI,QAAQ,CAAC,AACtB,CAAC,AACD,EAAE,8BAAC,CAAC,AACF,KAAK,CAAE,KAAK,CACZ,SAAS,CAAE,IAAI,AACjB,CAAC,AACH,CAAC;AC7CkB,SAAS,4BAAC,CAAC,AAC5B,KAAK,CAAE,OAAO,AAChB,CAAC,AACD,uBAAS,CAAC,EAAE,cAAC,CAAC,AACZ,KAAK,CAAE,IAAI,KAAK,CAAC,AACnB,CAAC"
+}
